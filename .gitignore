@@ -1,0 +1,8 @@
+# Virtualenv
+.Python
+Scripts
+Lib
+Include
+
+# Mac OS X custom attribute files
+.DS_Store
