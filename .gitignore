@@ -3,6 +3,11 @@
 Scripts
 Lib
 Include
+env
+venv
+.pyc
+__pycache__
 
-# Mac OS X custom attribute files
+#custom attribute files
 .DS_Store
+
