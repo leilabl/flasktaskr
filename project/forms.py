@@ -5,6 +5,7 @@ from flask_wtf import Form
 from wtforms import TextField, DateField, IntegerField, SelectField
 from wtforms.validators import DataRequired
 
+#Check validators - seem to not be working
 
 class AddTaskForm(Form):
     task_id = IntegerField('Priority')
