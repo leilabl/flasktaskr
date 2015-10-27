@@ -8,12 +8,16 @@ from functools import wraps
 
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask_bootstrap import Bootstrap
+
+import datetime
 
 ##############
 ### config ###
 ##############
 
 app = Flask(__name__)
+Bootstrap(app)
 app.config.from_object('_config')
 db = SQLAlchemy(app)
 
@@ -82,6 +86,8 @@ def new_task():
                 form.name.data,
                 form.due_date.data,
                 form.priority.data,
+                datetime.datetime.utcnow(),
+                '1',
                 '1'
             )
             db.session.add(new_task)

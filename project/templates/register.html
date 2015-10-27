@@ -4,19 +4,17 @@
 <h1>Welcome to FlaskTaskr</h1>
 <h3>Please register to access the task list</h3>
 
-<form method="POST" action="">
+<form class="form form-horizontal" method="POST" action="">
   {{ form.csrf_token }}
-  <p>
-    {{ form.name.label }}: {{ form.name }}
-    &nbsp;&nbsp;
-    {{ form.email.label }}: {{ form.email }}
-  </p>
-  <p>
-    {{ form.password.label }}: {{ form.password }}
-    &nbsp;&nbsp;
-    {{ form.confirm.label }}: {{ form.confirm }}
-  </p>
-  <p><input type="submit" value="Register"</p>
+    <div class="form-group">
+    {{ form.name.label }}: {{ form.name }}</div>
+    <div class="form-group">
+    {{ form.email.label }}: {{ form.email }}</div>
+    <div class="form-group">
+    {{ form.password.label }}: {{ form.password }}</div>
+    <div class="form-group">
+    {{ form.confirm.label }}: {{ form.confirm }}</div>
+    <input class="btn btn-success" type="submit" value="Register">
 </form>
 
 <br>

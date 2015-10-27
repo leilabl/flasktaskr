@@ -1,15 +1,18 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
   background: #eee;
+  font-weight: 400;
 }
 
 a, h1, h2 {
   color: #377BA8;
 }
 
-h1, h2 {
-  font-family: 'Georgia', serif;
+h1{
+  font-family: 'Playfair Display', serif;
   margin: 0;
+  font-weight: 700;
+  font-style: italic;
 }
 
 h1 {
@@ -45,7 +48,9 @@ h2 {
 .add-task {
   font-size: 0.9em;
   border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
 }
+
 .add-task dl {
   font-weight: bold;
 }
@@ -68,7 +73,7 @@ h2 {
   padding: 0.5em;
 }
 
-.datagrid table {
+/*.datagrid table {
   border-collapse: collapse;
   text-align: left;
   width: 100%;
@@ -79,19 +84,18 @@ h2 {
   overflow: hidden;
   border: 1px solid #000000;
   border-radius: 3px;
-}
+}*/
 
-.datagrid table td, .datagrid table th {
+/*.datagrid table td, .datagrid table th {
   padding: 3px 10px;
-}
+}*/
 
 .datagrid table thead th {
-  background-color:#000000;
-  color:#FFFFFF;
+  background-color:#E6F3F7;
   font-size: 15px;
   font-weight: bold;
 }
-.datagrid table thead th:first-child {
+/*.datagrid table thead th:first-child {
   border: none;
 }
 
@@ -113,7 +117,7 @@ h2 {
 
 .datagrid table tbody tr:last-child td {
   border-bottom: none;
-}
+}*/
 
 .button {
   background-color:#000;
@@ -124,4 +128,9 @@ h2 {
   margin: 0;
   text-decoration:none;
   position:relative;
+}
+
+label{
+  width: 135px;
+  text-align: right;
 }
