@@ -1,4 +1,4 @@
-#TODO check why SQLAlchemy does not support DB migrations
+#SQLAlchemy does not support DB migrations
 
 from views import db
 from _config import DATABASE_PATH

@@ -8,7 +8,6 @@ from functools import wraps
 
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
-from flask_bootstrap import Bootstrap
 
 import datetime
 
@@ -17,9 +16,9 @@ import datetime
 ##############
 
 app = Flask(__name__)
-Bootstrap(app)
 app.config.from_object('_config')
 db = SQLAlchemy(app)
+
 
 from model import Task, User
 
@@ -42,6 +41,7 @@ def login_required(test):
 
 def logout():
     session.pop('logged_in', None)
+    session.pop('user_id', None)
     flash('Goodbye!')
     return redirect(url_for('login'))
 
@@ -55,6 +55,7 @@ def login():
             user = User.query.filter_by(name=request.form['name']).first()
             if user is not None and user.password == request.form['password']:
                 session['logged_in'] = True
+                session['user_id'] = user.id
                 flash('Welcome!')
                 return redirect(url_for('tasks'))
             else:
@@ -88,12 +89,16 @@ def new_task():
                 form.priority.data,
                 datetime.datetime.utcnow(),
                 '1',
-                '1'
+                session['user_id']
             )
             db.session.add(new_task)
             db.session.commit()
             flash('New entry was successfully posted.')
-    return redirect(url_for('tasks'))
+            return redirect(url_for('tasks'))
+        else:
+            flash('All fields are required.')
+            return redirect(url_for('tasks'))
+    return render_template('tasks.html', form=form)
 
 # Mark tasks as complete
 @app.route('/complete/<int:task_id>/')
