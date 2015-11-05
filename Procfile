@@ -1,1 +1,1 @@
-web: python project\\run.py
+web: python r'project\run.py'
