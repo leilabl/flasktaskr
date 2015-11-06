@@ -5,7 +5,7 @@
 # app.run(debug=True)
 
 #for heroku deployment
-# import os
+import os
 from views import app
 
 post = int(os.environ.get('PORT', 5000))
