@@ -1,3 +1,3 @@
-#FlaskTaskr
+#Flask Task Manager
 
-##Real Python Project
+Flask app where users can register and keep track of tasks, assigning due dates and priorities to each of them.

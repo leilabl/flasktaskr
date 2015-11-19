@@ -3,7 +3,7 @@
 
 from flask_wtf import Form
 from wtforms import StringField, TextField, DateField, IntegerField, SelectField, PasswordField
-from wtforms.validators import DataRequired, Length, EqualTo
+from wtforms.validators import DataRequired, Length, EqualTo, Email
 
 #Check validators - seem to not be working
 
@@ -28,13 +28,13 @@ class RegisterForm(Form):
         'Username',validators=[DataRequired(),Length(min=6, max=25)]
     )
     email = StringField(
-        'Email',validators=[DataRequired(), Length(min=6, max=40)]
+        'Email',validators=[DataRequired(), Email(), Length(min=6, max=40)]
     )
-    password = StringField(
+    password = PasswordField(
         'Password',validators=[DataRequired(), Length(min=6, max=40)]
     )
     confirm = PasswordField(
-        'Repeat Password',[DataRequired(), EqualTo('password', message='Passwords must match')]
+        'Repeat Password',[DataRequired(), EqualTo('password')]
     )
 
 class LoginForm(Form):
